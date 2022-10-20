@@ -1,18 +1,64 @@
 <!DOCTYPE html>	
 <html>
     <!--Make navbar-->
+    <style>
+
+        .btn-link {
+            background-color: rgba(226, 67, 67, 0.674);
+            border-color: rgba(226, 67, 67, 0.674);
+            border-radius: 10px;
+            width: 100px;
+            height: 50px;
+            float: right;
+            margin-right: 10px;
+            margin-top: 20px;
+        }
+
+        .btn-link:hover {
+            background-color: rgba(211, 24, 24, 0.674);
+        }
+
+        .navbar {
+            margin-top: -10px;
+            margin-left: -9%;
+            float: top;
+            height: 100px;
+            width: 110%;
+            background-color: lightgrey;
+            border-color: black;
+        }
+
+        body {
+            background-color: white;
+        }
+        
+        .header-nav {
+            margin-left: 50px;
+            margin-top: 30px;
+            text-align: center;
+            font-size: xx-large;
+            float: left;
+            height: 50px;
+            width: 500px;
+            border-color: black;
+            color: black;
+        }
+
+    </style>
     <head>
         <title>Home</title>
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
         <div class="navbar">
-            <section class="navbar-section">
-                <a href="index.html" class="navbar-brand mr-2">Home</a>
-                <a href="about.html" class="btn btn-link">About</a>
-                <a href="contact.html" class="btn btn-link">Contact</a>
+            <!--Add title-->
+            
+            <area class="navbar-section">
+                <h class='header-nav'>Land makers</h>
+                <button class="btn btn-link" onclick="window.location.href='about.html'">About</button>
+                <button class="btn btn-link" onclick="window.location.href='contact.html'">Contact</button>
+                <button class="btn btn-link" onclick="window.location.href='index.html'">Home</button>
+            
+            </section>
         </div>
     </body>
 </html
