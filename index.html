@@ -3,21 +3,34 @@
     <!--Make navbar-->
     <style>
 
+        
+
         .btn-link {
-            background-color: rgba(226, 67, 67, 0.674);
-            border-color: rgba(226, 67, 67, 0.674);
             border-radius: 10px;
-            width: 100px;
-            height: 50px;
-            float: right;
-            margin-right: 10px;
-            margin-top: 20px;
+            width: 66.6666666667px;
+            height: 25px;
+            
+            border-color: transparent;
         }
 
         .btn-link:hover {
-            background-color: rgba(211, 24, 24, 0.674);
+            background-color: lightgray;
         }
 
+        .btn-link-left {
+            float: left;
+            margin-left: 5px;
+        }
+
+        .btn-link-right {
+            float: right;
+            margin-right: 5px;
+        }
+
+        .btn-link-center {
+            margin-left: 45px;
+        }
+ 
         .navbar {
             margin-top: -10px;
             margin-left: -9%;
@@ -30,7 +43,40 @@
 
         body {
             background-color: white;
+            overflow-x: hidden;
         }
+
+        .slide {
+            position: absolute;
+            opacity: 0.5;
+            background-color: red;
+            width: 66.6666666667px;
+            height: 25px;
+            border-radius: 10px;
+            top: 28px;
+        }
+
+        .page-home {
+            width: 101.5%;
+            height: 100%;
+            margin-left: -0.5%;
+            position: absolute;
+            border-color: transparent;
+        }
+
+        .page-about {
+            width: 101.5%;
+            height: 100%;
+            position: absolute;
+            border-color: transparent;
+        }
+
+        .page-contact {
+            width: 101.5%;
+            height: 100%;
+            border-color: transparent;
+            position: absolute;
+        }        
         
         .header-nav {
             margin-left: 50px;
@@ -44,21 +90,94 @@
             color: black;
         }
 
+        .slider {
+            float: right;
+            margin-right: 50px;
+            margin-top: 30px;
+            border-radius: 10px;
+            width: 300px;
+            height: 25px;
+            background-color: gray;
+        }
+
+        .pages {
+            margin: 0;
+        }
+
+        .transition-0s {
+            transition: all 0s ease;
+        }
+
+        .transition-1s {
+            transition: all 1s ease;
+        }
+
+        .banner {
+            margin-top: 90px;
+            border-radius: 10px;
+            width: 60%;
+            margin-left: 5%;
+            height: 500px;
+            text-align: center;
+            background-color: rgb(253, 74, 74);
+        }
+
+        .b-header {
+            margin-top: 50px;
+            font-size: 50px;
+            font-weight: 900;
+        }
+
+        .txt-1 {
+            font-weight: 500; 
+            font-size: 20px; 
+            width: 90%;
+            margin-left: 5%;
+        }
+
+        .hide-y-overflow {
+            overflow-y: hidden;
+        }
+
     </style>
     <head>
-        <title>Home</title>
-    </head>
+        <title>Land makers</title>
     <body>
         <div class="navbar">
             <!--Add title-->
             
-            <area class="navbar-section">
+            <section class="navbar-section">
                 <h class='header-nav'>Land makers</h>
-                <button class="btn btn-link" onclick="window.location.href='about.html'">About</button>
-                <button class="btn btn-link" onclick="window.location.href='contact.html'">Contact</button>
-                <button class="btn btn-link" onclick="window.location.href='index.html'">Home</button>
-            
+                <div class="slider">
+                    <!--Add three positions-->
+                    <button class="btn-link btn-link-left" id="btn-slide-1" style="font-size: 12px;">Home</button>
+                    <button class="btn-link btn-link-center" id="btn-slide-2" style="font-size: 12px;">Over ons</button>
+                    <button class="btn-link btn-link-right" id="btn-slide-3" style="font-size: 12px;">Uitleg</button>
+                    <div class="slide" id="slider">
+                </div>
+                
             </section>
+
+            
+
         </div>
+        <div class="pages" id="pages">
+            <div class="page-home" id="page1">
+                <h1 style="text-align: center; font-size: 100px; width: 100%;">Home</h1>
+                <!--Add content-->
+                <div class="banner">
+                    <header class="b-header">Waarom dit project?</header>
+                    <p class="txt-1">
+                        Wat wij zagen was dat er in de komende tijd te weinig land is, bijvoorbeeld de huizen crisis. Je kan nergens een huis vinden omdat er geen land is.
+                        Dit is een groot probleem, want er zijn veel mensen die een huis willen.
+                        Ook voor eten is er een probleem, want er is te weinig land om eten te verbouwen. 
+                        Daarom hebben wij dit project gemaakt, zodat er meer land is.
+                    </p>
+                </div>
+            </div>
+            <iframe class="page-about" id="page2" src="about.html"></iframe>
+            <iframe class="page-contact" id="page3" src="uitleg.html"></iframe>    
+        </div>
+        <script src="navbar.js" defer></script>
     </body>
-</html
+</html>
