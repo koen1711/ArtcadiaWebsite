@@ -1,1 +1,19 @@
-<header style="text-align: center; font-size: 100px;">Uitleg</header>
+<header style="text-align: center; font-size: 100px; margin-top: 100px;">Uitleg</header>
+<header style="margin-top: 100px; width: 100%; height: 10px">S</header>
+<video id="anim" style="width: 90%; margin-left: 5%;" width="320" height="240" controls>
+    <source src="vid2.mp4" type="video/mp4"></sourcesrc>></source>
+</video>
+
+<script>
+    // Get width of the window
+    var width = window.innerWidth;
+    var height = window.innerHeight;
+
+    var newWidth = width * 0.9;
+    var newHeight = height * 0.9;
+
+    var video = document.getElementById("anim");
+
+    video.width = newWidth;
+    video.height = newHeight;
+</script>

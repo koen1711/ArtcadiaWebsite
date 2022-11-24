@@ -24,13 +24,13 @@ page3.style.top = "95px";
 const slider = document.getElementById("slider");
 slider.classList.add("transition-0s");
 
-//Tween(btn2.getBoundingClientRect().x, slider);
+//TweenX(btn2.getBoundingClientRect().x, slider);
 
-//Tween(btn1.getBoundingClientRect().x, slider);
+//TweenX(btn1.getBoundingClientRect().x, slider);
 
-// set up the tweening of pages
+// set up the TweenXing of pages
 
-Tween(btn1.getBoundingClientRect().x, slider);
+TweenX(btn1.getBoundingClientRect().x, slider);
 
 slider.classList.remove("transition-0s");
 slider.classList.add("transition-1s");
@@ -38,49 +38,72 @@ slider.classList.add("transition-1s");
 
 curbtn = btn1;
 
-function Tween(pos, elm, type = "px") {
+function TweenX(pos, elm, type = "px") {
     if (elm == undefined) {
         elm = slider;
     }
     // Add where the slider should go
     elm.style.left = pos + type;
 }
+function TweenY(pos, elm, type = "px") {
+    if (elm == undefined) {
+        elm = slider;
+    }
+    // Add where the slider should go
+    elm.style.top = pos + type;
+}
+
+var modal = document.getElementById("modal");
 
 btn1.addEventListener("click", function() {
     // Add the position based off btn1
-    Tween(btn1.getBoundingClientRect().x, slider);
+    TweenX(btn1.getBoundingClientRect().x, slider);
     // put page-home in the right place
-    Tween(-0.5, page1, "%");
-    Tween(101.5, page2, "%");
-    Tween(203, page3, "%");
-    Tween(0, pages);
+    TweenX(-0.5, page1, "%");
+    TweenX(101.5, page2, "%");
+    TweenX(203, page3, "%");
+    TweenX(0, pages);
     page1.classList.remove("hide-y-overflow");
     page2.classList.add("hide-y-overflow");
     page3.classList.add("hide-y-overflow");
     curbtn = btn1;
+
+    var video = document.getElementById("anim");
+    video.pause();
+    modal.style.display = "none";
 });
 
 btn2.addEventListener("click", function() {
-    Tween(btn2.getBoundingClientRect().x, slider);
-    Tween(-101.5, page1, "%");
-    Tween(-0.5, page2, "%");
-    Tween(101.5, page3, "%");
+    TweenX(btn2.getBoundingClientRect().x, slider);
+    TweenX(-101.5, page1, "%");
+    TweenX(-0.5, page2, "%");
+    TweenX(101.5, page3, "%");
     page1.classList.add("hide-y-overflow");
     page2.classList.remove("hide-y-overflow");
     page3.classList.add("hide-y-overflow");
     curbtn = btn2;
+
+    // Make video stop playing
+    var video = document.getElementById("anim");
+    video.pause();
+    modal.style.display = "none";
 });
 
 
 btn3.addEventListener("click", function() {
-    Tween(btn3.getBoundingClientRect().x, slider);
-    Tween(-203, page1, "%");
-    Tween(-101.5, page2, "%");
-    Tween(-0.5, page3, "%");
+    TweenX(btn3.getBoundingClientRect().x, slider);
+    TweenX(-203, page1, "%");
+    TweenX(-101.5, page2, "%");
+    TweenX(-0.5, page3, "%");
     page1.classList.add("hide-y-overflow");
     page2.classList.add("hide-y-overflow");
     page3.classList.remove("hide-y-overflow");
     curbtn = btn3;
+
+    // Make video play after 1 second
+    setTimeout(function() {
+        document.getElementById("anim").play();
+    }, 1000);
 });
 
 window.onresize = function() {
@@ -91,7 +114,9 @@ window.onresize = function() {
         
 
         // get the new position of the button
-        Tween(curbtn.getBoundingClientRect().x, slider);
+        TweenX(curbtn.getBoundingClientRect().x, slider);
+        TweenY(curbtn.getBoundingClientRect().y, slider);
+
     }, 5);
 
     // wait for 1 second

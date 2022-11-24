@@ -37,13 +37,14 @@
             float: top;
             height: 100px;
             width: 110%;
-            background-color: lightgrey;
             border-color: black;
+            border-radius: 1px;
+            background-color: rgb(66, 64, 64);
         }
 
         body {
             background-color: white;
-            overflow-x: hidden;
+            overflow-x: none;
         }
 
         .slide {
@@ -87,7 +88,7 @@
             height: 50px;
             width: 500px;
             border-color: black;
-            color: black;
+            color: white;
         }
 
         .slider {
@@ -111,15 +112,32 @@
         .transition-1s {
             transition: all 1s ease;
         }
+        
 
         .banner {
             margin-top: 90px;
             border-radius: 10px;
             width: 60%;
             margin-left: 5%;
-            height: 500px;
+            height: 300px;
             text-align: center;
-            background-color: rgb(253, 74, 74);
+            background-color: black;
+            color: white;
+        }
+
+        .banner-2 {
+            margin-top: -300px;
+            border-radius: 10px;
+            width: 25%;
+            margin-right: 5%;
+            height: 300px;
+            text-align: center;
+            background-color: black;
+            color: white;
+            position: relative;
+            float: right;
+            display: flex;
+            justify-content: center;
         }
 
         .b-header {
@@ -161,10 +179,10 @@
             
 
         </div>
+        <div style="width: 110%; height: 5px; background-color: rgb(66, 64, 64); margin-left: -5%;"></div>
         <div class="pages" id="pages">
             <div class="page-home" id="page1">
-                <h1 style="text-align: center; font-size: 100px; width: 100%;">Home</h1>
-                <!--Add content-->
+                <header style="text-align: center; font-size: 100px; width: 100%;">Home</header>
                 <div class="banner">
                     <header class="b-header">Waarom dit project?</header>
                     <p class="txt-1">
@@ -174,9 +192,64 @@
                         Daarom hebben wij dit project gemaakt, zodat er meer land is.
                     </p>
                 </div>
+                <div class="banner-2">
+                    <header class="b-header"></header>
+                </div>
             </div>
             <iframe class="page-about" id="page2" src="about.html"></iframe>
-            <iframe class="page-contact" id="page3" src="uitleg.html"></iframe>    
+            <div class="page-about" id="page3">
+                <button id="details" style="position: absolute; right: calc(50%); top: -15px; width: 200px; background-color: red; border-width: 0px;">Details</button>
+                <video id="anim" style="width: 90%; margin-left: 5%; margin-top: 5px;" width="320" height="240" controls>
+                    <source src="vid.mp4" type="video/mp4"></source>
+                   
+                </video>
+                <!--Add modal with vid2.mp4 that is invisible by default-->
+                <div id="modal" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100vh; background-color: black; display: none;">
+                    <header>HAHA</header>
+                    <video id="vid2" style="width: 90%; margin-left: 5%; margin-top: 1px;" width="320" height="240" controls>
+                        <source src="vid2.mp4" type="video/mp4"></source>
+                    </video>
+                </div>
+
+            </div>
+                
+                <script>
+
+                    // move btn to middle of screen
+                    var btn = document.getElementById("details");
+                    var modal = document.getElementById("modal");
+
+                    btn.style.left = (window.innerWidth / 2) - (btn.offsetWidth / 2) + "px";
+                    // Get width of the window
+                    var width = window.innerWidth;
+                    var height = window.innerHeight;
+    
+                    var newWidth = width * 0.9;
+                    var newHeight = height * 0.9;
+    
+                    var video = document.getElementById("anim");
+                    var video2 = document.getElementById("vid2");
+    
+                    video.width = newWidth;
+                    video.height = newHeight;
+                    video2.width = newWidth;
+                    video2.height = newHeight;
+
+                    details.addEventListener("click", function() {
+                        if (modal.style.display == "none") {
+                            modal.style.display = "block";
+                            video.pause();
+                            video2.play();
+                            details.innerHTML = "Sluit details";
+                        } else {
+                            modal.style.display = "none";
+                            video.play();
+                            video2.pause();
+                            details.innerHTML = "Details";
+                        }
+                    });
+                </script>
+            </div>
         </div>
         <script src="navbar.js" defer></script>
     </body>
